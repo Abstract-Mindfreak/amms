@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MMSS Control Surface</title>
+  <link rel="stylesheet" href="/app.css" />
+</head>
+<body>
+  <header>
+    <h1>MMSS Quantum Geometric Console</h1>
+    <div id="status"></div>
+  </header>
+
+  <main>
+    <section class="metrics-panel">
+      <div class="metrics-header">
+        <h2>🚀 QGU Физические Константы</h2>
+        <button id="refresh-metrics">🔄 Обновить вычисления</button>
+      </div>
+
+      <div class="constants-grid">
+        <article class="constant-card">
+          <h3>Масса электрона</h3>
+          <div class="value" id="electron-mass">—</div>
+          <div class="reference">Эксперимент: 9.1093837015×10⁻³¹ kg</div>
+        </article>
+
+        <article class="constant-card">
+          <h3>Постоянная тонкой структуры</h3>
+          <div class="value" id="fine-structure">—</div>
+          <div class="reference">CODATA: 0.0072973525693</div>
+        </article>
+
+        <article class="constant-card">
+          <h3>Кватернионная когерентность</h3>
+          <div class="value" id="quaternion-coherence">—</div>
+          <div class="reference">Цель: &gt; 0.9995</div>
+        </article>
+
+        <article class="constant-card">
+          <h3>Топологическая намотка</h3>
+          <div class="value" id="topological-winding">—</div>
+          <div class="reference">Цель: 9.0000</div>
+        </article>
+      </div>
+
+      <div class="metrics-raw">
+        <h3>Raw Metrics Payload</h3>
+        <pre id="metrics">loading…</pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tasks</h2>
+      <div class="task-controls">
+        <textarea id="task-json" rows="6" placeholder='{"task_name":"Manual Task", "geometric_operator":"QuaternionRotation", ...}'></textarea>
+        <label><input type="checkbox" id="task-execute" checked /> Execute immediately</label>
+        <button id="submit-task">Submit Task</button>
+      </div>
+      <h3>Active Tasks</h3>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Status</th></tr>
+        </thead>
+        <tbody id="task-list"></tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>LLM Gateway</h2>
+      <textarea id="llm-query" rows="4" placeholder="Describe the optimization you want"></textarea>
+      <button id="send-llm">Request Task from LLM</button>
+      <pre id="llm-response"></pre>
+    </section>
+
+    <section>
+      <h2>AI Research Campaign</h2>
+      <div class="campaign-form">
+        <label>
+          Goal
+          <input id="campaign-goal" type="text" placeholder="Достичь topological_winding = 9.0000" />
+        </label>
+        <label>
+          Optimization Target
+          <input id="campaign-target" type="text" value="topological_winding" />
+        </label>
+        <label>
+          Target Value
+          <input id="campaign-target-value" type="number" step="0.0001" value="9.0" />
+        </label>
+        <label>
+          Max Steps
+          <input id="campaign-steps" type="number" min="1" max="25" value="5" />
+        </label>
+        <label>
+          Context (optional)
+          <textarea id="campaign-context" rows="3" placeholder='{"notes":"use fine tuning"}'></textarea>
+        </label>
+        <button id="start-research">Start Research Campaign</button>
+      </div>
+      <pre id="research-result">Awaiting campaign…</pre>
+    </section>
+
+    <section>
+      <h2>Visualization Packet</h2>
+      <pre id="viz-packet">loading…</pre>
+    </section>
+  </main>
+
+  <footer>
+    <small>Mistral API key is read from server env. All commands routed through MMSS semantic processor.</small>
+  </footer>
+
+  <script src="/app.js?v=2025-11-20" type="module"></script>
+</body>
+</html>

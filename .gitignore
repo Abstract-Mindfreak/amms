@@ -1,0 +1,35 @@
+﻿# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+.rustc_info.json
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Data
+*.arrow
+data.arrow
+*.parquet
+*.jsonl
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs & Environment
+.env
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
